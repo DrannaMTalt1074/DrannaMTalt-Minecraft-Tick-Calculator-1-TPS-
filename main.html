@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+             @font-face { font-family: Mc; src: url('Font/Minecraftia-Regular.ttf'); } 
+* {
+  font-family: Mc;
+  font-size:95%;
+  color:white;
+  text-shadow:1px 1px #303030;
+}
+
+body {
+  background-image: url("Image/bgc.png");
+}
+
+input {
+  border:1px solid white;
+  border-radius:3px;
+  color:black;
+}
+
+button {
+  background-color:transparent;
+  color:white;
+  border:1px solid white;
+  border-radius:3px;
+}
+
+.container {
+  padding:20px;
+}
+
+#status {
+    color: #FFFF00;
+    font-size: 1.5em;
+    font-family: Mc;
+    text-shadow:3px 3px #3F3F00;
+    padding: 40px;
+    position: absolute;
+}
+.pop {
+    animation: pop 0.58s infinite;
+    -webkit-animation: pop 0.58s infinite;
+}
+@keyframes pop {
+    from {
+        transform:scale(0.95)
+    }
+    50% {
+        transform:scale(1)
+    }
+    to {
+        transform:scale(0.95)
+    }
+}
+@-webkit-keyframes pop {
+    from {
+        -webkit-transform:scale(0.95)
+    }
+    50% {
+        -webkit-transform:scale(1)
+    }
+    to {
+        -webkit-transform:scale(0.95)
+    }
+}
+.tilt {
+    -ms-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+}
+
+
+
+pr {
+    margin: auto;
+    display: block;
+             text-align: center;
+            position:top;
+             color: white;
+             text-shadow:3px 3px #303030;
+             background-color: #3F1F18;
+            font-size: 200%;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Tick calculator</title>
+    <link rel="icon" type="image/x-icon" href="Image/favicon.png">
+</head>
+<body>
+
+
+    <div style="overflow: hidden;">
+    <pr>Minecraft Accurate Tick Calculator (1 Tick per second)</pr>
+    <pr>Created By DrannaMTalt.</pr>
+    </div>
+    <div class="tilt" style = "position:relative; right:-740px; top:-250px;">
+      <div id="status" class="pop">Not&nbsp;affiliated&nbsp;with&nbsp;Mojang!</div>
+  </div>
+    
+    <div class="container">
+    
+    Seconds: <input id="seconds" type="text">
+      <br><br>
+    Minutes: <input id="minutes" type="text">
+      <br><br>
+    Hours: <input id="hours" type="text">
+      <br><br>
+    Days: <input id="days" type="text">
+      <br><br>
+    Years: <input id="years" type="text">
+      
+    <button id="calculate" onclick="calculate()">Calculate</button>
+    
+      <br><br>
+    Ticks: <input id="output1" type="text" disabled>
+      
+    <button onclick="doThe()">Clear</button> 
+     
+    </div>
+</body>
+<script>
+    function calculate() {
+  var outputNumber1 = document.getElementById('seconds').value *(20) / 2 + 
+
+document.getElementById('seconds').value * 20 / 2 +      
+document.getElementById('minutes').value *(60 * 20) + 
+document.getElementById('hours').value *(60 * 60 * 20) + 
+document.getElementById('days').value *(60 * 60 * 24 * 20) + 
+document.getElementById('years').value *(60 * 60 * 24 * 365 * 20);
+
+document.getElementById('output1').value = parseInt(outputNumber1);
+}
+
+function doThe() {
+  
+    document.getElementById('seconds').value = "";
+    document.getElementById('minutes').value = ""; 
+    document.getElementById('hours').value = ""; 
+    document.getElementById('days').value = ""; 
+    document.getElementById('years').value = "";
+    document.getElementById('output1').value = "";
+}
+</script>
+</html>
